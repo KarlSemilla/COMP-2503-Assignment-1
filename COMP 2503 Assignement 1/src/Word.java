@@ -4,7 +4,11 @@ public class Word implements Comparable<Word> {
 	private int count;
 	
 	public Word() {
-		word = null;
+		
+	}
+	
+	public Word(String entry) {
+		word = entry;
 	}
 	
 	public String getWord()
@@ -36,5 +40,8 @@ public class Word implements Comparable<Word> {
 		}
 		else
 			return 0;
+	}
+	public String toString() {
+		return word;
 	}
 }
