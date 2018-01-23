@@ -12,12 +12,12 @@ public class A1 {
 		while(inp.hasNext()) {
 			word = inp.next();
 			word = word.trim().replace(",", "").replace(".", "").replace("'", "").toLowerCase();
-			count++;
 			word = stop(word);
 			wordArr.add(new Word(word));
 			//System.out.println(word);
 			
-			System.out.println("" + wordArr.get(0).toString());
+			System.out.println("" + wordArr.get(count).toString());
+			count++;
 		}
 		//System.out.println(wordArr.get(0).toString());
 		}
@@ -25,7 +25,10 @@ public class A1 {
 	public static String stop (String word) {
 		ArrayList<String> stopWords = new ArrayList<String>();
 		String actual = "";
-		String stop = ("a, about, all, am, an, and, any, are, as, at, be,\r\n" + 
+		int i = 0;
+		boolean result = false;
+		String stop;
+		stop = "a, about, all, am, an, and, any, are, as, at, be,\r\n" + 
 				"been, but, by, can, cannot, could, did, do, does,\r\n" + 
 				"else, for, from, get, got, had, has, have, he, her,\r\n" + 
 				"hers, him, his, how, i, if, in, into, is, it, its, like,\r\n" + 
@@ -33,18 +36,18 @@ public class A1 {
 				"said, say, says, she, so, some, than, that, the, their,\r\n" + 
 				"them, then, there, these, they, this, to, too, us, upon,\r\n" + 
 				"was, we, were, what, with, when, where, which, while, who,\r\n" + 
-				"whom, why, will, you, your").replace(",", "").trim();
-		stopWords.add(stop);
-		for(int i = 0; i < stopWords.size(); i++) {
-		if(word == stopWords.get(i)) {
-			actual = "";
+				"whom, why, will, you, your";
+		Collections.addAll(stopWords, stop.replace(",","").split(" "));
+
+		while(i < stopWords.size() && result != true ) {
+			if(stopWords.get(i).equals(word)) {
+				actual = "";
+				result = true;
+			}
+			else 
+				actual = word;
+			i++;
 		}
-		else 
-			word = actual;
-		}
-		
 		return actual;
 	}
-
-	
 }
