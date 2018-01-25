@@ -4,11 +4,16 @@ public class Word implements Comparable<Word> {
 	private int count;
 	
 	public Word() {
-		
+		count = 1;
 	}
 	
 	public Word(String entry) {
 		word = entry;
+	}
+	
+	public Word(String entry, int inCount) {
+		word = entry;
+		count = inCount;
 	}
 	
 	public String getWord()
@@ -31,6 +36,10 @@ public class Word implements Comparable<Word> {
 		this.count = count;
 	}
 	
+	public void incCount() {
+		this.count++;
+	}
+	
 	public int compareTo(Word other) {
 		if(count < other.count) {
 			return -1;
@@ -42,6 +51,6 @@ public class Word implements Comparable<Word> {
 			return 0;
 	}
 	public String toString() {
-		return word;
+		return word + " " + count;
 	}
 }
