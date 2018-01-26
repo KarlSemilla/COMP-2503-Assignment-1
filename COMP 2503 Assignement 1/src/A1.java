@@ -24,12 +24,9 @@ public class A1 {
 		String escape = "";
 		
 		System.out.print("Enter a string of letters: ");
-		while(inp.hasNext() && escape != "exit") {
+		while(inp.hasNext()) {
 			word = inp.next();
 			escape = word;
-			if (escape.equalsIgnoreCase("exit")) {
-				break;
-			}
 			word = word.trim().replace(",", "").replace(".", "").replace("'", "").replace("?","").toLowerCase();
 			word = stop(word);
 			
