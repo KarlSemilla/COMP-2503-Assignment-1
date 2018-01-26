@@ -1,4 +1,8 @@
 import java.util.*;
+/*
+ * This class creates a word object
+ * */
+
 public class Word implements Comparable<Word> {
 	private String word;
 	private int count;
@@ -49,7 +53,8 @@ public class Word implements Comparable<Word> {
 		}
 		else
 			return 0;
-	}
+		}
+
 	public String toString() {
 		return word + " " + count;
 	}
